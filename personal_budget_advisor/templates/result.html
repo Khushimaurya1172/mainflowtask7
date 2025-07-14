@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Budget Summary</title>
+    <style>
+        body { font-family: Arial; background: #f3f3f3; padding: 30px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #4CAF50; color: white; }
+        .summary { margin-top: 20px; font-weight: bold; }
+        .suggestion { margin-top: 20px; color: darkblue; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Budget Summary</h2>
+        <p>Total Monthly Income: ₹{{ income }}</p>
+
+        <table>
+            <tr><th>Category</th><th>Amount (₹)</th><th>Percent (%)</th></tr>
+            {% for category, data in expenses.items() %}
+                <tr>
+                    <td>{{ category }}</td>
+                    <td>{{ data.amount }}</td>
+                    <td>{{ data.percent }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <div class="summary">
+            Total Expenses: ₹{{ total_expense }} <br>
+            Total Savings: ₹{{ savings }}
+        </div>
+
+        <div class="suggestion">{{ suggestion }}</div>
+    </div>
+</body>
+</html>

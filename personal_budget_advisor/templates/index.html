@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Personal Budget Advisor</title>
+    <style>
+        body { font-family: Arial; background: #f3f3f3; padding: 30px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        input[type=number] { width: 100%; padding: 10px; margin: 8px 0; }
+        input[type=submit] { background-color: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Personal Budget Advisor</h2>
+        <form action="/result" method="post">
+            <label>Total Monthly Income:</label>
+            <input type="number" name="income" step="0.01" required>
+            <label>Rent:</label>
+            <input type="number" name="rent" step="0.01" required>
+            <label>Food:</label>
+            <input type="number" name="food" step="0.01" required>
+            <label>Transport:</label>
+            <input type="number" name="transport" step="0.01" required>
+            <label>Entertainment:</label>
+            <input type="number" name="entertainment" step="0.01" required>
+            <label>Others:</label>
+            <input type="number" name="others" step="0.01" required>
+            <input type="submit" value="Analyze Budget">
+        </form>
+    </div>
+</body>
+</html>
